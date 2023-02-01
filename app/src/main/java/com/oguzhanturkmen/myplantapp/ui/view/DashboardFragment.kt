@@ -1,15 +1,15 @@
-package com.oguzhanturkmen.myplantapp.dashboard
+package com.oguzhanturkmen.myplantapp.ui.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.oguzhanturkmen.myplantapp.R
-import com.oguzhanturkmen.myplantapp.adapter.DashboardAdapter
+import com.oguzhanturkmen.myplantapp.ui.adapter.DashboardAdapter
+import com.oguzhanturkmen.myplantapp.ui.viewmodel.DashboardViewModel
 import kotlinx.android.synthetic.main.fragment_dashboard.*
 
 

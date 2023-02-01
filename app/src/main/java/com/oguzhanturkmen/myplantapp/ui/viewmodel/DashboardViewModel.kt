@@ -1,11 +1,11 @@
-package com.oguzhanturkmen.myplantapp.dashboard
+package com.oguzhanturkmen.myplantapp.ui.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.oguzhanturkmen.mypharmacyonduty.service.APIUtils
-import com.oguzhanturkmen.myplantapp.data.Plant
-import com.oguzhanturkmen.myplantapp.data.PlantResponse
+import com.oguzhanturkmen.myplantapp.data.models.Plant
+import com.oguzhanturkmen.myplantapp.data.models.PlantResponse
 import retrofit2.Call
 import retrofit2.Response
 

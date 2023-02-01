@@ -3,32 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/dashboardFragment">
 
     <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.oguzhanturkmen.myplantapp.login.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
-        <action
-            android:id="@+id/action_loginFragment_to_signUpFragment"
-            app:destination="@id/signUpFragment" />
-        <action
-            android:id="@+id/action_loginFragment_to_dashboardFragment"
-            app:destination="@id/dashboardFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/signUpFragment"
-        android:name="com.oguzhanturkmen.myplantapp.login.SignUpFragment"
-        android:label="fragment_sign_up"
-        tools:layout="@layout/fragment_sign_up" >
-        <action
-            android:id="@+id/action_signUpFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/dashboardFragment"
-        android:name="com.oguzhanturkmen.myplantapp.dashboard.DashboardFragment"
+        android:name="com.oguzhanturkmen.myplantapp.ui.view.DashboardFragment"
         android:label="fragment_dashboard"
         tools:layout="@layout/fragment_dashboard" >
         <action
@@ -37,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/basketFragment"
-        android:name="com.oguzhanturkmen.myplantapp.basket.BasketFragment"
+        android:name="com.oguzhanturkmen.myplantapp.ui.view.BasketFragment"
         android:label="fragment_basket"
         tools:layout="@layout/fragment_basket" >
         <action
@@ -49,12 +28,12 @@
     </fragment>
     <fragment
         android:id="@+id/favoritePlantFragment"
-        android:name="com.oguzhanturkmen.myplantapp.favorite.FavoritePlantFragment"
+        android:name="com.oguzhanturkmen.myplantapp.ui.view.FavoritePlantFragment"
         android:label="fragment_favorite_plant"
         tools:layout="@layout/fragment_favorite_plant" />
     <fragment
         android:id="@+id/paymentFragment"
-        android:name="com.oguzhanturkmen.myplantapp.payment.PaymentFragment"
+        android:name="com.oguzhanturkmen.myplantapp.ui.view.PaymentFragment"
         android:label="fragment_payment"
         tools:layout="@layout/fragment_payment" >
         <action
@@ -63,7 +42,7 @@
     </fragment>
     <fragment
         android:id="@+id/plantFragment"
-        android:name="com.oguzhanturkmen.myplantapp.plants.PlantFragment"
+        android:name="com.oguzhanturkmen.myplantapp.ui.view.PlantFragment"
         android:label="fragment_plant"
         tools:layout="@layout/fragment_plant" >
         <action
@@ -75,7 +54,7 @@
     </fragment>
     <fragment
         android:id="@+id/plantDetailsFragment"
-        android:name="com.oguzhanturkmen.myplantapp.plants.PlantDetailsFragment"
+        android:name="com.oguzhanturkmen.myplantapp.ui.view.PlantDetailsFragment"
         android:label="fragment_plant_details"
         tools:layout="@layout/fragment_plant_details" >
         <action
@@ -87,7 +66,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.oguzhanturkmen.myplantapp.profile.ProfileFragment"
+        android:name="com.oguzhanturkmen.myplantapp.ui.view.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
 </navigation>

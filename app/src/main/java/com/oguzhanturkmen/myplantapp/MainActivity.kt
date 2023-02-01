@@ -2,17 +2,9 @@ package com.oguzhanturkmen.myplantapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.MenuItem
-import android.view.View
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.oguzhanturkmen.myplantapp.basket.BasketFragment
-import com.oguzhanturkmen.myplantapp.dashboard.DashboardFragment
 import com.oguzhanturkmen.myplantapp.databinding.ActivityMainBinding
-import com.oguzhanturkmen.myplantapp.favorite.FavoritePlantFragment
-import com.oguzhanturkmen.myplantapp.plants.PlantFragment
-import com.oguzhanturkmen.myplantapp.profile.ProfileFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

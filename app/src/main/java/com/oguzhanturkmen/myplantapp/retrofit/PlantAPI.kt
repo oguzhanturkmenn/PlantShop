@@ -1,7 +1,7 @@
-package com.oguzhanturkmen.mypharmacyonduty.service
+package com.oguzhanturkmen.myplantapp.retrofit
 
 
-import com.oguzhanturkmen.myplantapp.data.PlantResponse
+import com.oguzhanturkmen.myplantapp.data.models.PlantResponse
 import retrofit2.Call
 import retrofit2.http.GET
 

@@ -1,10 +1,9 @@
-package com.oguzhanturkmen.myplantapp.adapter
+package com.oguzhanturkmen.myplantapp.ui.adapter
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.oguzhanturkmen.myplantapp.data.Plant
+import com.oguzhanturkmen.myplantapp.data.models.Plant
 import com.oguzhanturkmen.myplantapp.databinding.PlantRowBinding
 
 class DashboardAdapter(var plantList: List<Plant>) : RecyclerView.Adapter<DashboardAdapter.DashboardHolder>() {

@@ -1,4 +1,4 @@
-package com.oguzhanturkmen.mypharmacyonduty.service
+package com.oguzhanturkmen.myplantapp.retrofit
 
 import com.google.gson.GsonBuilder
 import retrofit2.Retrofit

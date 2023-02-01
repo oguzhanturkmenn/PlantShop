@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "5358748779",
+    "project_id": "myplantshop-8b5e2",
+    "storage_bucket": "myplantshop-8b5e2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:5358748779:android:e66e9420be9a2decf19d2e",
+        "android_client_info": {
+          "package_name": "com.oguzhanturkmen.myplantapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "5358748779-hcmkachm8169hvtdd1sm7dhkqc86ibe0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQwTZDIc1eeCCOu22EOb5i6YU038mGfxU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "5358748779-hcmkachm8169hvtdd1sm7dhkqc86ibe0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

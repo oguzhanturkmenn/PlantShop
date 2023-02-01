@@ -1,4 +1,4 @@
-package com.oguzhanturkmen.myplantapp.data
+package com.oguzhanturkmen.myplantapp.data.models
 
 data class Plant(
     val Description: String,

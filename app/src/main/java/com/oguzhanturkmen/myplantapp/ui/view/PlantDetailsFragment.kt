@@ -1,4 +1,4 @@
-package com.oguzhanturkmen.myplantapp.profile
+package com.oguzhanturkmen.myplantapp.ui.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,8 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.oguzhanturkmen.myplantapp.R
 
-
-class ProfileFragment : Fragment() {
+class PlantDetailsFragment : Fragment() {
 
 
     override fun onCreateView(
@@ -16,7 +15,7 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false)
+        return inflater.inflate(R.layout.fragment_plant_details, container, false)
     }
 
 

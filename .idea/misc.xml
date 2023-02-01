@@ -21,12 +21,16 @@
         <entry key="..\:/Users/oguzh/AndroidStudioProjects/MyPlantApp/app/src/main/res/drawable/profile_white_background.xml" value="0.2545" />
         <entry key="..\:/Users/oguzh/AndroidStudioProjects/MyPlantApp/app/src/main/res/drawable/search_background.xml" value="0.2555" />
         <entry key="..\:/Users/oguzh/AndroidStudioProjects/MyPlantApp/app/src/main/res/drawable/top_background.xml" value="0.2545" />
+        <entry key="..\:/Users/oguzh/AndroidStudioProjects/MyPlantApp/app/src/main/res/layout/activity_logout.xml" value="0.264" />
         <entry key="..\:/Users/oguzh/AndroidStudioProjects/MyPlantApp/app/src/main/res/layout/activity_main.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/oguzh/AndroidStudioProjects/MyPlantApp/app/src/main/res/layout/basket_row.xml" value="0.264" />
+        <entry key="..\:/Users/oguzh/AndroidStudioProjects/MyPlantApp/app/src/main/res/layout/content_logout.xml" value="0.22530996152201796" />
         <entry key="..\:/Users/oguzh/AndroidStudioProjects/MyPlantApp/app/src/main/res/layout/dashboard_row.xml" value="0.19628286491387126" />
         <entry key="..\:/Users/oguzh/AndroidStudioProjects/MyPlantApp/app/src/main/res/layout/fragment_basket.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/oguzh/AndroidStudioProjects/MyPlantApp/app/src/main/res/layout/fragment_dashboard.xml" value="0.2" />
-        <entry key="..\:/Users/oguzh/AndroidStudioProjects/MyPlantApp/app/src/main/res/layout/fragment_login.xml" value="0.20521590423257802" />
+        <entry key="..\:/Users/oguzh/AndroidStudioProjects/MyPlantApp/app/src/main/res/layout/fragment_favorite_plant.xml" value="0.19628286491387126" />
+        <entry key="..\:/Users/oguzh/AndroidStudioProjects/MyPlantApp/app/src/main/res/layout/fragment_first.xml" value="0.22530996152201796" />
+        <entry key="..\:/Users/oguzh/AndroidStudioProjects/MyPlantApp/app/src/main/res/layout/fragment_login.xml" value="0.1" />
         <entry key="..\:/Users/oguzh/AndroidStudioProjects/MyPlantApp/app/src/main/res/layout/fragment_payment.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/oguzh/AndroidStudioProjects/MyPlantApp/app/src/main/res/layout/fragment_plant.xml" value="0.15789473684210525" />
         <entry key="..\:/Users/oguzh/AndroidStudioProjects/MyPlantApp/app/src/main/res/layout/fragment_plant_details.xml" value="0.264" />
