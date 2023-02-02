@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/dashboardFragment">
+    app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/dashboardFragment"
@@ -22,9 +22,6 @@
         <action
             android:id="@+id/action_basketFragment_to_paymentFragment"
             app:destination="@id/paymentFragment" />
-        <action
-            android:id="@+id/action_basketFragment_to_plantDetailsFragment"
-            app:destination="@id/plantDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/favoritePlantFragment"
@@ -35,19 +32,12 @@
         android:id="@+id/paymentFragment"
         android:name="com.oguzhanturkmen.myplantapp.ui.view.PaymentFragment"
         android:label="fragment_payment"
-        tools:layout="@layout/fragment_payment" >
-        <action
-            android:id="@+id/action_paymentFragment_to_basketFragment"
-            app:destination="@id/basketFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_payment" />
     <fragment
         android:id="@+id/plantFragment"
         android:name="com.oguzhanturkmen.myplantapp.ui.view.PlantFragment"
         android:label="fragment_plant"
         tools:layout="@layout/fragment_plant" >
-        <action
-            android:id="@+id/action_plantFragment_to_dashboardFragment"
-            app:destination="@id/dashboardFragment" />
         <action
             android:id="@+id/action_plantFragment_to_plantDetailsFragment"
             app:destination="@id/plantDetailsFragment" />
@@ -58,9 +48,6 @@
         android:label="fragment_plant_details"
         tools:layout="@layout/fragment_plant_details" >
         <action
-            android:id="@+id/action_plantDetailsFragment_to_plantFragment"
-            app:destination="@id/plantFragment" />
-        <action
             android:id="@+id/action_plantDetailsFragment_to_basketFragment"
             app:destination="@id/basketFragment" />
     </fragment>
@@ -69,4 +56,18 @@
         android:name="com.oguzhanturkmen.myplantapp.ui.view.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.oguzhanturkmen.myplantapp.ui.view.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.oguzhanturkmen.myplantapp.ui.view.SignUpFragment"
+        android:label="SignUpFragment"
+        tools:layout="@layout/fragment_sign_up"/>
 </navigation>

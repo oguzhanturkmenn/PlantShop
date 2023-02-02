@@ -7,4 +7,6 @@ class PlantRepo(var dataSource: PlantDataSource) {
 
     fun register(userEmail: String, userPassword: String) =
         dataSource.register(userEmail, userPassword)
+
+    fun getLiveUser() = dataSource.getLiveUser()
 }
