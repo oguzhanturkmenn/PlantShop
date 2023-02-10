@@ -7,35 +7,41 @@
 
     <fragment
         android:id="@+id/dashboardFragment"
-        android:name="com.oguzhanturkmen.myplantapp.ui.view.DashboardFragment"
+        android:name="com.oguzhanturkmen.myplantapp.ui.dashboard.DashboardFragment"
         android:label="fragment_dashboard"
         tools:layout="@layout/fragment_dashboard" >
         <action
             android:id="@+id/action_dashboardFragment_to_plantFragment"
             app:destination="@id/plantFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_plantDetailsFragment"
+            app:destination="@id/plantDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/basketFragment"
-        android:name="com.oguzhanturkmen.myplantapp.ui.view.BasketFragment"
+        android:name="com.oguzhanturkmen.myplantapp.ui.basket.BasketFragment"
         android:label="fragment_basket"
         tools:layout="@layout/fragment_basket" >
         <action
             android:id="@+id/action_basketFragment_to_paymentFragment"
             app:destination="@id/paymentFragment" />
+        <argument
+            android:name="plant_data"
+            app:argType="com.oguzhanturkmen.myplantapp.data.models.Plant" />
     </fragment>
     <fragment
         android:id="@+id/favoritePlantFragment"
-        android:name="com.oguzhanturkmen.myplantapp.ui.view.FavoritePlantFragment"
+        android:name="com.oguzhanturkmen.myplantapp.ui.favorite.FavoritePlantFragment"
         android:label="fragment_favorite_plant"
         tools:layout="@layout/fragment_favorite_plant" />
     <fragment
         android:id="@+id/paymentFragment"
-        android:name="com.oguzhanturkmen.myplantapp.ui.view.PaymentFragment"
+        android:name="com.oguzhanturkmen.myplantapp.ui.payment.PaymentFragment"
         android:label="fragment_payment"
         tools:layout="@layout/fragment_payment" />
     <fragment
         android:id="@+id/plantFragment"
-        android:name="com.oguzhanturkmen.myplantapp.ui.view.PlantFragment"
+        android:name="com.oguzhanturkmen.myplantapp.ui.plant.PlantFragment"
         android:label="fragment_plant"
         tools:layout="@layout/fragment_plant" >
         <action
@@ -44,30 +50,40 @@
     </fragment>
     <fragment
         android:id="@+id/plantDetailsFragment"
-        android:name="com.oguzhanturkmen.myplantapp.ui.view.PlantDetailsFragment"
+        android:name="com.oguzhanturkmen.myplantapp.ui.plantdetails.PlantDetailsFragment"
         android:label="fragment_plant_details"
         tools:layout="@layout/fragment_plant_details" >
         <action
             android:id="@+id/action_plantDetailsFragment_to_basketFragment"
             app:destination="@id/basketFragment" />
+        <argument
+            android:name="plantDetailData"
+            app:argType="com.oguzhanturkmen.myplantapp.data.models.Plant" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.oguzhanturkmen.myplantapp.ui.view.ProfileFragment"
+        android:name="com.oguzhanturkmen.myplantapp.ui.profile.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.oguzhanturkmen.myplantapp.ui.view.LoginFragment"
+        android:name="com.oguzhanturkmen.myplantapp.ui.login.LoginFragment"
         android:label="LoginFragment"
         tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_signUpFragment"
             app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment" />
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.oguzhanturkmen.myplantapp.ui.view.SignUpFragment"
+        android:name="com.oguzhanturkmen.myplantapp.ui.signup.SignUpFragment"
         android:label="SignUpFragment"
         tools:layout="@layout/fragment_sign_up"/>
 </navigation>

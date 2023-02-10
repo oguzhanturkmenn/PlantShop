@@ -1,4 +1,4 @@
-package com.oguzhanturkmen.myplantapp.ui.view
+package com.oguzhanturkmen.myplantapp.ui.signup
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,9 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.oguzhanturkmen.myplantapp.R
-import com.oguzhanturkmen.myplantapp.databinding.FragmentLoginBinding
 import com.oguzhanturkmen.myplantapp.databinding.FragmentSignUpBinding
-import com.oguzhanturkmen.myplantapp.ui.viewmodel.SignUpViewModel
 import com.oguzhanturkmen.myplantapp.utils.gecisYap
 import com.oguzhanturkmen.myplantapp.utils.makeToast
 import dagger.hilt.android.AndroidEntryPoint

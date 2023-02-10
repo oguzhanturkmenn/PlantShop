@@ -1,4 +1,4 @@
-package com.oguzhanturkmen.myplantapp.ui.viewmodel
+package com.oguzhanturkmen.myplantapp.ui.signup
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,12 +8,12 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class LoginViewModel @Inject constructor(
+class SignUpViewModel @Inject constructor(
     var plantRepo: PlantRepo
 ) : ViewModel() {
     var answer = MutableLiveData<Answer>()
 
-    fun login(email: String, password: String){
-        answer = plantRepo.login(email,password)
+    fun register(userEmail: String, userPassword: String) {
+        answer = plantRepo.register(userEmail, userPassword)
     }
 }

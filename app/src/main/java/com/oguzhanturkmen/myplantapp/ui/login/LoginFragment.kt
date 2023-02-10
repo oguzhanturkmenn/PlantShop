@@ -1,4 +1,4 @@
-package com.oguzhanturkmen.myplantapp.ui.view
+package com.oguzhanturkmen.myplantapp.ui.login
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,12 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.oguzhanturkmen.myplantapp.R
 import com.oguzhanturkmen.myplantapp.databinding.FragmentLoginBinding
-import com.oguzhanturkmen.myplantapp.ui.viewmodel.LoginViewModel
 import com.oguzhanturkmen.myplantapp.utils.gecisYap
 import com.oguzhanturkmen.myplantapp.utils.makeToast
 import dagger.hilt.android.AndroidEntryPoint
@@ -21,9 +22,11 @@ class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
     private lateinit var viewModel: LoginViewModel
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
+
     }
 
     override fun onCreateView(
@@ -40,13 +43,19 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.loginFragment = this
 
+        if (viewModel.firebaseAuth.currentUser != null) {
+            Navigation.gecisYap(
+                requireView(),
+                LoginFragmentDirections.actionLoginFragmentToDashboardFragment()
+            )
+        }
     }
 
     private fun observeLiveData() {
         viewModel.answer.observe(viewLifecycleOwner) { answer ->
             answer.success?.let {
                 if (it == 1) {
-                    Navigation.gecisYap(requireView(),R.id.dashboardFragment)
+                    Navigation.gecisYap(requireView(), R.id.dashboardFragment)
                 } else {
                     makeToast(requireContext(), answer.message.toString())
                 }
@@ -54,7 +63,7 @@ class LoginFragment : Fragment() {
         }
     }
 
-    fun loginClicked(email: String?, password: String?){
+    fun loginClicked(email: String?, password: String?) {
         email?.let { nEmail ->
             password?.let { nPassword ->
                 if (nEmail.isNotEmpty() && nPassword.isNotEmpty()) {
@@ -65,10 +74,10 @@ class LoginFragment : Fragment() {
         }
     }
 
-    fun goToSignup(view: View){
-        Navigation.findNavController(view).navigate(LoginFragmentDirections.actionLoginFragmentToSignUpFragment())
+    fun goToSignup(view: View) {
+        Navigation.findNavController(view)
+            .navigate(LoginFragmentDirections.actionLoginFragmentToSignUpFragment())
     }
-
 
 
 }

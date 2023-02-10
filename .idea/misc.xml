@@ -6,6 +6,7 @@
         <entry key="..\:/Users/oguzh/AndroidStudioProjects/MyPlantApp/app/src/main/res/drawable-ldpi/detail_page_cart_button.xml" value="0.2555" />
         <entry key="..\:/Users/oguzh/AndroidStudioProjects/MyPlantApp/app/src/main/res/drawable-ldpi/ic_arrow_forward_black_24dp.xml" value="0.2555" />
         <entry key="..\:/Users/oguzh/AndroidStudioProjects/MyPlantApp/app/src/main/res/drawable-ldpi/ic_heart.xml" value="0.2555" />
+        <entry key="..\:/Users/oguzh/AndroidStudioProjects/MyPlantApp/app/src/main/res/drawable-xhdpi/user_image.xml" value="0.2445" />
         <entry key="..\:/Users/oguzh/AndroidStudioProjects/MyPlantApp/app/src/main/res/drawable/atop_background.xml" value="0.2555" />
         <entry key="..\:/Users/oguzh/AndroidStudioProjects/MyPlantApp/app/src/main/res/drawable/banner_background.xml" value="0.2545" />
         <entry key="..\:/Users/oguzh/AndroidStudioProjects/MyPlantApp/app/src/main/res/drawable/button_background.xml" value="0.2015" />
@@ -32,9 +33,9 @@
         <entry key="..\:/Users/oguzh/AndroidStudioProjects/MyPlantApp/app/src/main/res/layout/fragment_first.xml" value="0.22530996152201796" />
         <entry key="..\:/Users/oguzh/AndroidStudioProjects/MyPlantApp/app/src/main/res/layout/fragment_login.xml" value="0.20081595648232095" />
         <entry key="..\:/Users/oguzh/AndroidStudioProjects/MyPlantApp/app/src/main/res/layout/fragment_payment.xml" value="0.20521590423257802" />
-        <entry key="..\:/Users/oguzh/AndroidStudioProjects/MyPlantApp/app/src/main/res/layout/fragment_plant.xml" value="0.15789473684210525" />
-        <entry key="..\:/Users/oguzh/AndroidStudioProjects/MyPlantApp/app/src/main/res/layout/fragment_plant_details.xml" value="0.264" />
-        <entry key="..\:/Users/oguzh/AndroidStudioProjects/MyPlantApp/app/src/main/res/layout/fragment_profile.xml" value="0.20521590423257802" />
+        <entry key="..\:/Users/oguzh/AndroidStudioProjects/MyPlantApp/app/src/main/res/layout/fragment_plant.xml" value="0.2" />
+        <entry key="..\:/Users/oguzh/AndroidStudioProjects/MyPlantApp/app/src/main/res/layout/fragment_plant_details.xml" value="0.2" />
+        <entry key="..\:/Users/oguzh/AndroidStudioProjects/MyPlantApp/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
         <entry key="..\:/Users/oguzh/AndroidStudioProjects/MyPlantApp/app/src/main/res/layout/fragment_sign_up.xml" value="0.264" />
         <entry key="..\:/Users/oguzh/AndroidStudioProjects/MyPlantApp/app/src/main/res/layout/plant_row.xml" value="0.4" />
         <entry key="..\:/Users/oguzh/AndroidStudioProjects/MyPlantApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.264" />
