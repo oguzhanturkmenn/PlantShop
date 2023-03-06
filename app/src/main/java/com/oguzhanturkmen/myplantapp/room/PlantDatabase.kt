@@ -6,6 +6,5 @@ import com.oguzhanturkmen.myplantapp.data.models.Plant
 
 @Database(entities = [Plant::class], version = 1)
 abstract class PlantDatabase : RoomDatabase() {
-
     abstract fun getPlantRoomDao(): PlantDao
 }

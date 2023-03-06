@@ -19,6 +19,7 @@ class DashboardViewModel @Inject constructor(
 ) : ViewModel() {
     val list = MutableLiveData<List<Plant>>()
     var answer = MutableLiveData<Answer>()
+    val basketPlantList = MutableLiveData<List<Plant>>()
 
 
     init {
@@ -31,10 +32,15 @@ class DashboardViewModel @Inject constructor(
         }
     }
 
+
+
+
+/*
     fun addToBasket(plantName:String,plantPrice:String){
         CoroutineScope(Dispatchers.Main).launch {
             plantRepo.addToBasket(plantName,plantPrice)
         }
     }
+ */
 
 }

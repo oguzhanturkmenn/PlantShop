@@ -105,7 +105,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:maxLines="1"
-                android:text="Plant Piece"
+                android:text="Count: 1"
                 android:textColor="@color/black"
                 android:textSize="13sp" />
 

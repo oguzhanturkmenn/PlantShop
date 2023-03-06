@@ -53,8 +53,10 @@ class AppModule {
     @Provides
     @Singleton
     fun providePlantDao(@ApplicationContext context: Context):PlantDao{
-        val db = Room.databaseBuilder(context,PlantDatabase::class.java,"real_plant.sqlite")
-            .createFromAsset("real_plant.sqlite").build()
+        val db = Room.databaseBuilder(context,PlantDatabase::class.java,"newone_plant.sqlite")
+            .createFromAsset("newone_plant.sqlite")
+            //.fallbackToDestructiveMigration()
+            .build()
 
         return db.getPlantRoomDao()
     }

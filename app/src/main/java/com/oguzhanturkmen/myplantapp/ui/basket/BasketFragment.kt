@@ -1,5 +1,6 @@
 package com.oguzhanturkmen.myplantapp.ui.basket
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -38,16 +39,19 @@ class BasketFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        basketAdapter = BasketAdapter()
         observeLiveData()
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun observeLiveData() {
+
         viewModel.basketList.observe(viewLifecycleOwner){
-            basketAdapter = BasketAdapter(it)
             binding.basketAdapter = basketAdapter
-            binding.rvBasket.setHasFixedSize(true)
+            basketAdapter.submitList(it)
+            basketAdapter.notifyDataSetChanged()
         }
+
     }
 
 

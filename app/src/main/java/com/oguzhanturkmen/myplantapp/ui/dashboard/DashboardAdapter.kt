@@ -9,10 +9,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.oguzhanturkmen.myplantapp.R
 import com.oguzhanturkmen.myplantapp.data.models.Plant
 import com.oguzhanturkmen.myplantapp.databinding.PlantRowBinding
+import com.oguzhanturkmen.myplantapp.ui.basket.BasketViewModel
 import com.oguzhanturkmen.myplantapp.utils.gecisYap
 import com.oguzhanturkmen.myplantapp.utils.makeToast
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
-class DashboardAdapter(var mContext: Context, var plantList: List<Plant>, var viewModel :DashboardViewModel)
+class DashboardAdapter(var mContext: Context, var plantList: List<Plant>, var viewModel :BasketViewModel)
     : RecyclerView.Adapter<DashboardAdapter.DashboardHolder>(){
 
 
@@ -38,14 +42,12 @@ class DashboardAdapter(var mContext: Context, var plantList: List<Plant>, var vi
         }
 
         t.btnAddtobasketPlantrow.setOnClickListener {
-            val plantName = plant.PlantName
-            val plantPrice = plant.Price
-            viewModel.addToBasket(plantName,plantPrice)
-            makeToast(mContext,"Added to basket")
-
+                val plantName = plant.PlantName
+                val plantPrice = plant.Price
+                val plantCount = plant.plantCount
+                viewModel.addToBasket(plant,plantName,plantPrice,plantCount)
+                makeToast(mContext,"Added to basket")
         }
-
-
     }
 
     override fun getItemCount(): Int {

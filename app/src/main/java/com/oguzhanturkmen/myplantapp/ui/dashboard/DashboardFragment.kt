@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.oguzhanturkmen.myplantapp.R
 import com.oguzhanturkmen.myplantapp.data.models.Plant
 import com.oguzhanturkmen.myplantapp.databinding.FragmentDashboardBinding
+import com.oguzhanturkmen.myplantapp.ui.basket.BasketViewModel
 import com.oguzhanturkmen.myplantapp.utils.gecisYap
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -19,6 +20,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class DashboardFragment : Fragment(){
     private lateinit var binding: FragmentDashboardBinding
     private lateinit var dashboardViewModel: DashboardViewModel
+    private lateinit var basketViewModel: BasketViewModel
     private lateinit var dashboardAdapter: DashboardAdapter
     lateinit var newProduct: Plant
 
@@ -27,7 +29,7 @@ class DashboardFragment : Fragment(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         dashboardViewModel = ViewModelProvider(this)[DashboardViewModel::class.java]
-
+        basketViewModel = ViewModelProvider(this)[BasketViewModel::class.java]
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,7 +50,7 @@ class DashboardFragment : Fragment(){
 
     private fun observeLiveData() {
         dashboardViewModel.list.observe(viewLifecycleOwner){
-            dashboardAdapter = DashboardAdapter(requireContext(),it,dashboardViewModel)
+            dashboardAdapter = DashboardAdapter(requireContext(),it,basketViewModel)
             binding.dashboardAdapter = dashboardAdapter
             binding.rvDashboard.setHasFixedSize(true)
         }

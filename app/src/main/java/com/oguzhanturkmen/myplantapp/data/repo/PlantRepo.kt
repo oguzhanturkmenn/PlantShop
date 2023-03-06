@@ -7,7 +7,7 @@ class PlantRepo(var dataSource: PlantDataSource) {
 
     suspend fun loadPlants(): List<Plant> = dataSource.loadPlants()
 
-    suspend fun addToBasket(plantName:String,plantPrice:String) = dataSource.addToBasket(plantName,plantPrice)
+    suspend fun addToBasket(plantName:String,plantPrice:String,plantCount:Int) = dataSource.addToBasket(plantName,plantPrice,plantCount)
 
     suspend fun getAllBasket(): List<Plant> = dataSource.getAllBasket()
 

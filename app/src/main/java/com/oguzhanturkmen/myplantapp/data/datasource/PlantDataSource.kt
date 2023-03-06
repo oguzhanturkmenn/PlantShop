@@ -47,13 +47,18 @@ class PlantDataSource(
         return allPlantList
     }
 
-    suspend fun addToBasket(plantName: String, plantPrice: String) {
+
+    suspend fun addToBasket(plantName: String, plantPrice: String,plantCount:Int) {
         withContext(Dispatchers.IO) {
-            basketPlantList = ArrayList()
-            val saveBasket = Plant(0,"","",plantPrice,plantName)
+            val saveBasket = Plant(0,"","",plantPrice,plantName,plantCount)
             plantDao.saveBasket(saveBasket)
         }
     }
+
+
+
+
+
 
     suspend fun getAllBasket(): List<Plant> =
         withContext(Dispatchers.IO) {
