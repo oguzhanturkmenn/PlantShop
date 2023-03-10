@@ -3,6 +3,7 @@ package com.oguzhanturkmen.myplantapp.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.oguzhanturkmen.myplantapp.R
@@ -12,6 +13,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private lateinit var navigationController : NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,10 +21,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
+
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         NavigationUI.setupWithNavController(binding.bottomNavMenu, navHostFragment.navController)
-
 
         navHostFragment.navController.addOnDestinationChangedListener { _, destination, _ ->
             when(destination.id){

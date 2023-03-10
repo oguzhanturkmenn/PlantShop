@@ -23,4 +23,10 @@ class PlantViewModel @Inject constructor(var plantRepo: PlantRepo) : ViewModel()
             list.value = plantRepo.loadPlants()
         }
     }
+
+    fun searchPlant(word:String){
+        CoroutineScope(Dispatchers.Main).launch {
+            list.value = plantRepo.searchPlant(word)
+        }
+    }
 }

@@ -48,14 +48,28 @@ class PlantDataSource(
     }
 
 
-    suspend fun addToBasket(plantName: String, plantPrice: String,plantCount:Int) {
+    suspend fun searchPlant(word: String): List<Plant> =
         withContext(Dispatchers.IO) {
-            val saveBasket = Plant(0,"","",plantPrice,plantName,plantCount)
-            plantDao.saveBasket(saveBasket)
+            plantDao.searchPlant(word)
+        }
+
+    suspend fun addToBasket(plant: Plant) {
+        withContext(Dispatchers.IO) {
+            plantDao.saveBasket(plant)
         }
     }
 
+    suspend fun updatePlant(count: Int, name: String) {
+        withContext(Dispatchers.IO) {
+            plantDao.updatePlant(count, name)
+        }
+    }
 
+    suspend fun deletePlant(name: String) {
+        withContext(Dispatchers.IO) {
+            plantDao.deletePlant(name)
+        }
+    }
 
 
 

@@ -2,6 +2,7 @@ package com.oguzhanturkmen.myplantapp.ui.basket
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.oguzhanturkmen.myplantapp.data.models.Plant
 import com.oguzhanturkmen.myplantapp.data.repo.PlantRepo
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -13,49 +14,68 @@ import javax.inject.Inject
 @HiltViewModel
 class BasketViewModel @Inject constructor(var plantRepo: PlantRepo) : ViewModel() {
     val basketList = MutableLiveData<List<Plant>>()
-    val basketPlantList = MutableLiveData<List<Plant>>()
 
 
     init {
         getAllBasket()
     }
+
     fun getAllBasket() {
         CoroutineScope(Dispatchers.Main).launch {
             basketList.value = plantRepo.getAllBasket()
         }
     }
 
-    fun addToBasket(plant:Plant, plantName:String, plantPrice:String, plantCount:Int){
-        CoroutineScope(Dispatchers.Main).launch {
-            if (basketPlantList.value != null){
-                val arrayList = ArrayList(basketPlantList.value!!)
-                //contains: eğer bu listenin içine eklenmeye çalışan ürün halihazırda varsa demek.
-                if (arrayList.contains(plant)){
-                    //indexOfFirst: istediğim elemanın hangi indexte olduğunu söylüyor.
-                    //indexOfFirst'e tanımlanan şey mesela telefon bu dizinin içinde var
-                    //ve 2. indexin içinde var diye bana bunu veriyor.
-                    val indexOfFirst = arrayList.indexOfFirst { it == plant }
-                    val relatedProduct = arrayList.get(indexOfFirst)
-                    relatedProduct.plantCount += 1
-                    basketPlantList.value = arrayList
-
-                }else{
-                    plant.plantCount += 1
-                    arrayList.add(plant)
-                    basketPlantList.value = arrayList
+    fun addToBasket(plant: Plant) {
+        viewModelScope.launch {
+            var isBasket = false
+            var basketCount = 0
+            basketList.value?.let {
+                for (plantDatabase in it) {
+                    if (plantDatabase.PlantName == plant.PlantName) {
+                        isBasket = true
+                        plantDatabase.plantCount?.let {
+                            basketCount = it
+                        }
+                        break
+                    }
                 }
-            }else{
-                val arrayList = arrayListOf(plant)
-                plant.plantCount += 1
-                basketPlantList.value = arrayList
-            }
+                if (isBasket) {
+                    plant.plantCount?.let {
+                        plant.PlantName?.let { it1 -> plantRepo.deletePlant(it1) }
+                        val newPlant = Plant(
+                            plant.plant_id,
+                            plant.Description,
+                            plant.Image,
+                            plant.Price,
+                            plant.PlantName,
+                            basketCount+1,
+                            plant.plantEmail
+                        )
+                        plantRepo.addToBasket(newPlant)
+                    }
 
-            basketPlantList.value.let {
-                // refreshTotalValue(it!!)
+                } else {
+                    val newPlant = Plant(
+                        plant.plant_id,
+                        plant.Description,
+                        plant.Image,
+                        plant.Price,
+                        plant.PlantName,
+                        1,
+                        plant.plantEmail
+                    )
+                    plantRepo.addToBasket(newPlant)
+                }
             }
-            plantRepo.addToBasket(plantName,plantPrice,plantCount)
         }
+    }
 
+    fun deletePlant(plant: Plant) {
+        viewModelScope.launch {
+            plant.PlantName?.let { plantRepo.deletePlant(it) }
+            getAllBasket()
+        }
     }
 
 
@@ -80,7 +100,6 @@ class BasketViewModel @Inject constructor(var plantRepo: PlantRepo) : ViewModel(
     }
 
  */
-
 
 
 }

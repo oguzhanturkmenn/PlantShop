@@ -2,10 +2,12 @@ package com.oguzhanturkmen.myplantapp.ui.dashboard
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.google.firebase.auth.FirebaseAuth
 import com.oguzhanturkmen.myplantapp.data.models.Answer
 import com.oguzhanturkmen.myplantapp.data.models.Plant
 import com.oguzhanturkmen.myplantapp.data.repo.PlantRepo
+import com.oguzhanturkmen.myplantapp.ui.basket.BasketViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -18,12 +20,15 @@ class DashboardViewModel @Inject constructor(
     var firebaseAuth: FirebaseAuth
 ) : ViewModel() {
     val list = MutableLiveData<List<Plant>>()
+    val zview = BasketViewModel(plantRepo)
+    val dashBasketList = MutableLiveData<List<Plant>>()
     var answer = MutableLiveData<Answer>()
     val basketPlantList = MutableLiveData<List<Plant>>()
 
 
     init {
         getDatas()
+
     }
 
     fun getDatas() {
@@ -31,8 +36,6 @@ class DashboardViewModel @Inject constructor(
             list.value = plantRepo.loadPlants()
         }
     }
-
-
 
 
 /*

@@ -15,23 +15,17 @@
         tools:context=".ui.plant.PlantFragment"
         android:id="@+id/frameLayout">
 
-        <EditText
-            android:id="@+id/et_search"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:layout_marginTop="5dp"
-            android:drawableEnd="@drawable/search_icon"
-            android:textColor="#8d8d8d"
-            android:elevation="3dp"
-            android:ems="10"
-            android:background="@drawable/search_background"
-            android:inputType="textPersonName"
-            android:hint="Search for plants..."
-            app:layout_constraintTop_toTopOf="parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/teal_700"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:titleTextColor="@android:color/white"
+            app:title="Plants"/>
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvPlant"
@@ -44,9 +38,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_search"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
             app:spanCount="2" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

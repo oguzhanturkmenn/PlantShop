@@ -1,11 +1,12 @@
 package com.oguzhanturkmen.myplantapp.ui.plant
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView
+import androidx.core.view.MenuProvider
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.oguzhanturkmen.myplantapp.R
@@ -14,7 +15,7 @@ import com.oguzhanturkmen.myplantapp.ui.dashboard.DashboardAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class PlantFragment : Fragment() {
+class PlantFragment : Fragment(), SearchView.OnQueryTextListener {
     private lateinit var binding: FragmentPlantBinding
     private lateinit var viewModel: PlantViewModel
     private lateinit var plantAdapter: PlantAdapter
@@ -22,6 +23,9 @@ class PlantFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProvider(this)[PlantViewModel::class.java]
+        setHasOptionsMenu(true)
+
+
     }
 
     override fun onCreateView(
@@ -36,6 +40,7 @@ class PlantFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setUpMenu()
         observeLiveData()
     }
 
@@ -44,8 +49,57 @@ class PlantFragment : Fragment() {
             plantAdapter = PlantAdapter(it)
             binding.plantAdapter = plantAdapter
             binding.rvPlant.setHasFixedSize(true)
+        }
     }
-}
+
+    private fun setUpMenu() {
+
+        requireActivity().addMenuProvider(object : MenuProvider {
+            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                menuInflater.inflate(R.menu.search_menu, menu)
+
+                val item = menu.findItem(R.id.search_menu_id)
+                val searchView = item.actionView as SearchView
+                searchView.setOnQueryTextListener(this@PlantFragment)
+            }
+
+            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                when (menuItem.itemId) {
+                    R.id.search_menu_id -> {
+                        return true
+                    }
+                    else -> {
+                        return false
+                    }
+                }
+            }
+
+        }, viewLifecycleOwner, Lifecycle.State.RESUMED)
+    }
+
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        if (query != null) {
+            searchPlant(query)
+            return true
+        }else {
+            return false
+        }
+
+    }
+
+    override fun onQueryTextChange(newText: String?): Boolean {
+        if (newText != null) {
+            searchPlant(newText)
+            return true
+        }else {
+            return false
+        }
+    }
+
+    private fun searchPlant(query: String?) {
+        val searchQuery = "%$query%"
+        viewModel.searchPlant(searchQuery)
+    }
 
 
 }

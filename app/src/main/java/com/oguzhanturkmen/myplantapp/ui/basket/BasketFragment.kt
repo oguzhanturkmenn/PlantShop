@@ -15,7 +15,7 @@ import com.oguzhanturkmen.myplantapp.ui.dashboard.DashboardAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class BasketFragment : Fragment() {
+class BasketFragment : Fragment() , BasketAdapterListener {
     private lateinit var binding: FragmentBasketBinding
     private var data:Plant? = null
     private lateinit var basketAdapter: BasketAdapter
@@ -33,13 +33,12 @@ class BasketFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_basket,container,false)
         return binding.root
-
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        basketAdapter = BasketAdapter()
+        basketAdapter = BasketAdapter(this@BasketFragment)
+        viewModel.getAllBasket()
         observeLiveData()
     }
 
@@ -54,5 +53,7 @@ class BasketFragment : Fragment() {
 
     }
 
-
+    override fun onDeleteClicked(plant: Plant) {
+        viewModel.deletePlant(plant)
+    }
 }
